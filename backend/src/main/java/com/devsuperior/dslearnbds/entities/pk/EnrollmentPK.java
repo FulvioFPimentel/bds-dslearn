@@ -9,14 +9,14 @@ import javax.persistence.ManyToOne;
 import com.devsuperior.dslearnbds.entities.Offer;
 import com.devsuperior.dslearnbds.entities.User;
 
-@Embeddable														// Para classe que define atributos de outra classe
-public class EnrollmentPK implements Serializable{
+@Embeddable
+public class EnrollmentPK implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "offer_id")
 	private Offer offer;
@@ -76,6 +76,4 @@ public class EnrollmentPK implements Serializable{
 			return false;
 		return true;
 	}
-	
-	
 }

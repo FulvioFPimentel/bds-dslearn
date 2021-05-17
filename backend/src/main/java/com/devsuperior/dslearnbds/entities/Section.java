@@ -12,15 +12,15 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_section")
-public class Section implements Serializable{
+public class Section implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String title;
 	private String description;
-	private String position;
+	private Integer position;
 	private String imgUri;
 	
 	@ManyToOne
@@ -31,11 +31,11 @@ public class Section implements Serializable{
 	@JoinColumn(name = "prerequisite_id")
 	private Section prerequisite;
 	
-	public Section () {
+	public Section() {
 	}
 
-	public Section(Long id, String title, String description, String position, String imgUri, Resource resource,
-			Section preequisite) {
+	public Section(Long id, String title, String description, Integer position, String imgUri, Resource resource,
+			Section prerequisite) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -43,7 +43,7 @@ public class Section implements Serializable{
 		this.position = position;
 		this.imgUri = imgUri;
 		this.resource = resource;
-		this.prerequisite = preequisite;
+		this.prerequisite = prerequisite;
 	}
 
 	public Long getId() {
@@ -70,11 +70,11 @@ public class Section implements Serializable{
 		this.description = description;
 	}
 
-	public String getPosition() {
+	public Integer getPosition() {
 		return position;
 	}
 
-	public void setPosition(String position) {
+	public void setPosition(Integer position) {
 		this.position = position;
 	}
 
@@ -94,14 +94,14 @@ public class Section implements Serializable{
 		this.resource = resource;
 	}
 
-	public Section getPreequisite() {
+	public Section getPrerequisite() {
 		return prerequisite;
 	}
 
-	public void setPreequisite(Section preequisite) {
-		this.prerequisite = preequisite;
+	public void setPrerequisite(Section prerequisite) {
+		this.prerequisite = prerequisite;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -126,5 +126,4 @@ public class Section implements Serializable{
 			return false;
 		return true;
 	}
-	
 }

@@ -24,4 +24,5 @@ public class NotificationService {
 		Page<Notification> page = repository.find(user, unreadOnly, pageable);
 		return page.map(x -> new NotificationDTO(x));
 	}
+	
 }

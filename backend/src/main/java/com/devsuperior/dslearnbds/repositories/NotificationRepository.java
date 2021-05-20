@@ -16,4 +16,5 @@ public interface NotificationRepository extends JpaRepository<Notification, Long
 			+ "ORDER BY obj.moment DESC")
 	Page<Notification> find(User user, boolean unreadOnly, Pageable pageable);
 	
+	
 }
